@@ -44,14 +44,20 @@ class SinglyLinklist{
 	
 	public void insertAtPos(int pos,int data) {
 		Node newNode = new Node(data);
-		int cnt=1;
+		int cnt=0;
 		Node current = head;
-		while(current.next!=null && cnt<pos-1) {
-			current=current.next;
-			cnt++;
-		}	
-		newNode.next=current.next;
-		current.next=newNode;
+		while(current.next!=null) {
+			if(pos-1==cnt) {
+				Node previous=current.next;
+				current.next=newNode;
+				newNode.next=previous;
+			}else {
+				cnt+=1;
+			}
+			
+			
+		}
+		
 	}
 	
 	
@@ -75,9 +81,8 @@ public class SLL {
 			out.println("Singly Linklist menu:");
 			out.println("1. create a new LinkList.");
 			out.println("2. insert new node.");
-			out.println("3. insert new node at pos.");
-			out.println("4. display Linklist.");
-			out.println("5. Exit.");
+			out.println("3. display Linklist.");
+			out.println("4. Exit.");
 			input = sc.nextInt();
 			switch(input) {
 				case 1:
@@ -89,18 +94,11 @@ public class SLL {
 					sll.insert(temp);
 					break;
 				case 3:
-					out.println("Enter node position:");
-					int temppos = sc.nextInt();
-					out.println("Enter data into node:");
-					temp = sc.nextInt();
-					sll.insertAtPos(temppos,temp);
-					break;
-				case 4:
 					sll.display();
 					break;
 				default:
 					out.println("Error incorrect input.");
 			}
-		}while(input!=5);
+		}while(input!=4);
 	}
 }

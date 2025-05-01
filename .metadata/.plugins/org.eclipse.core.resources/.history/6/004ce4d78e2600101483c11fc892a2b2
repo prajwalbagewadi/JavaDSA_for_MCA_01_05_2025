@@ -46,12 +46,19 @@ class SinglyLinklist{
 		Node newNode = new Node(data);
 		int cnt=1;
 		Node current = head;
-		while(current.next!=null && cnt<pos-1) {
+		while(current.next!=null) {
+			if(pos-1==cnt) {
+				Node previous=current.next;
+				current.next=newNode;
+				newNode.next=previous;
+			}else {
+				cnt+=1;
+				out.println("cnt="+cnt);
+			}
+			
 			current=current.next;
-			cnt++;
-		}	
-		newNode.next=current.next;
-		current.next=newNode;
+		}
+		
 	}
 	
 	

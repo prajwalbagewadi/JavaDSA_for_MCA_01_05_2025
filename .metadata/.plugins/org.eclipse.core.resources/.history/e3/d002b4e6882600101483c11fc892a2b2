@@ -44,14 +44,21 @@ class SinglyLinklist{
 	
 	public void insertAtPos(int pos,int data) {
 		Node newNode = new Node(data);
-		int cnt=1;
+		int cnt=0;
 		Node current = head;
-		while(current.next!=null && cnt<pos-1) {
-			current=current.next;
-			cnt++;
-		}	
-		newNode.next=current.next;
-		current.next=newNode;
+		while(current.next!=null) {
+			if(pos-1==cnt) {
+				Node previous=current.next;
+				current.next=newNode;
+				newNode.next=previous;
+			}else {
+				cnt+=1;
+				out.println("cnt="+cnt);
+			}
+			
+			
+		}
+		
 	}
 	
 	
