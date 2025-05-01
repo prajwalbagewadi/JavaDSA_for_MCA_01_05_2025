@@ -55,12 +55,6 @@ class SinglyLinklist{
 	}
 	
 	
-	public void insertAtHead(int data) {
-		Node newNode = new Node(data);
-		newNode.next=head;
-		head=newNode;
-	}
-	
 	
 	//display linklist
 	public void display() {
@@ -82,9 +76,8 @@ public class SLL {
 			out.println("1. create a new LinkList.");
 			out.println("2. insert new node.");
 			out.println("3. insert new node at pos.");
-			out.println("4. insert new node at head.");
-			out.println("5. display Linklist.");
-			out.println("6. Exit.");
+			out.println("4. display Linklist.");
+			out.println("5. Exit.");
 			input = sc.nextInt();
 			switch(input) {
 				case 1:
@@ -103,16 +96,11 @@ public class SLL {
 					sll.insertAtPos(temppos,temp);
 					break;
 				case 4:
-					out.println("Enter data into node:");
-					temp = sc.nextInt();
-					sll.insertAtHead(temp);
-					break;
-				case 5:
 					sll.display();
 					break;
 				default:
 					out.println("Error incorrect input.");
 			}
-		}while(input!=6);
+		}while(input!=5);
 	}
 }
