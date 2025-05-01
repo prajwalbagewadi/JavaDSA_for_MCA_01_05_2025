@@ -1,0 +1,19 @@
+package com.prajwal.hibernate3;
+
+public class Product_SubCategory {
+	private String pSubCat;
+
+	public String getpSubCat() {
+		return pSubCat;
+	}
+
+	public void setpSubCat(String pSubCat) {
+		this.pSubCat = pSubCat;
+	}
+
+	@Override
+	public String toString() {
+		return "Product_SubCategory [pSubCat=" + pSubCat + "]";
+	}
+	
+}

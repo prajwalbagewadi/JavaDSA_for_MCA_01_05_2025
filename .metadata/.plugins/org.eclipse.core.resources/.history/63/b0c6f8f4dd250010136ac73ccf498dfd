@@ -1,0 +1,16 @@
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+import static java.lang.System.out;
+
+public class DataType {
+
+	public static void main(String[] args) {
+		//data types
+		
+		//primitive DataTypes
+		//numeric type
+		byte bvar = 127; //-128 to 127
+		out.println("byte="+bvar);
+	}
+}

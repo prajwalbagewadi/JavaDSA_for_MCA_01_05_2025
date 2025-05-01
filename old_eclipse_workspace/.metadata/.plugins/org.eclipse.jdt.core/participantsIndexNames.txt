@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\Users\bagew\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\952491761.index
+\SumServlet\src\main\java
+C:\Users\bagew\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2700700632.index
+\mySpring\src\main\resources

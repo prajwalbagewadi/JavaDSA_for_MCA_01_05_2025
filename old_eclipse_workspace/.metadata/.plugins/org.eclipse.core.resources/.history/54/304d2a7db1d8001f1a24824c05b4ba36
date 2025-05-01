@@ -1,0 +1,5 @@
+package com.prajwal.hibernate3;
+
+public class Product_SubCategory {
+
+}

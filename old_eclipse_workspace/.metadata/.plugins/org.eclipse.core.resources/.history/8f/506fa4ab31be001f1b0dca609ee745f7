@@ -1,0 +1,29 @@
+package com.prajwal.HibernateDemoMaven;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        Employee e1=new Employee();
+        e1.setEmpid(101);
+        e1.setEname("Prajwal");
+        e1.setEdept("Development");
+        Configuration con=new Configuration().configure().addAnnotatedClass(Employee.class);
+        SessionFactory sf=con.buildSessionFactory(); //SessionFactory interface
+        Session session=sf.openSession(); //Session interface
+        
+        Transaction tx =session.beginTransaction();
+        session.save(e1);
+        tx.commit();
+    }
+}

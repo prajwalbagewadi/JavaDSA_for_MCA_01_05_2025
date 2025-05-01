@@ -1,0 +1,43 @@
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+import static java.lang.System.out;
+
+public class DataType {
+
+	public static void main(String[] args) {
+		//data types
+		
+		//primitive DataTypes
+		//numeric type
+		byte bvar = 127; //-128 to 127 1byte
+		out.println("byte="+bvar);
+		short svar = 32767;  //-32,768 to 32,767 2bytes
+		out.println("short="+svar);
+		int ivar = 2147483647; //2^31 4bytes
+		out.println("int="+ivar);
+		long lvar = 9223372036854775807L; //9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 8bytes
+		out.println("long="+lvar);
+		
+		//floating point
+		float fnum = 1.12345678f;//6-7 significant decimal digits 4bytes
+		out.println("float="+fnum);
+		double dnum =1.123456789123456d; //~15-16 significant decimal digits 8bytes
+		out.println("double="+dnum);
+	
+		//non numeric type
+		boolean bnum=true; //true or false 1byte
+		out.println("boolean="+bnum);
+		char cvar='A'; //16bit unicode char 2bytes
+		out.println("char="+cvar);
+		
+		//non primitive 
+		//string 
+		String m ="strings";//array of chars
+		out.println("String="+m);
+		//class A Class is a user-defined blueprint or prototype from which objects are created. 
+		//object An Object is a basic unit of Object-Oriented Programming and represents real-life entities.
+		//interface Like a class, an interface can have methods and variables, but the methods declared in an interface are by default abstract (only method signature, no body).
+		//array An Array is a group of like-typed variables that are referred to by a common name. 
+	}
+}
