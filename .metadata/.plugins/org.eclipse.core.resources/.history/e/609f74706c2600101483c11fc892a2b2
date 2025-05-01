@@ -1,0 +1,10 @@
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+
+import static java.lang.System.out; //create a static object for omitting System
+
+
+public class SLL {
+
+}

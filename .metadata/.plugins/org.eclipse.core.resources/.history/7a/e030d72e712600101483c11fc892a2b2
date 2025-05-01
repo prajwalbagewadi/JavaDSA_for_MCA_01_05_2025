@@ -1,0 +1,82 @@
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+
+import static java.lang.System.out; //create a static object for omitting System
+
+/*
+A singly linked list is a fundamental data structure, 
+it consists of nodes where each node contains a data field and 
+a reference to the next node in the linked list.
+
+head 
+A        -> B        -> c       -> d       -> null   
+data next      next		   next       next
+*/
+
+class Node {
+	int data;
+	Node next;
+	
+	//constructor to init the node with data
+	public Node(int data) {
+		this.data=data;
+		this.next=null;
+	}
+}
+
+class SinglyLinklist{
+	Node head;
+	
+	//insert node at end.
+	public void insert(int data) {
+		Node newNode = new Node(data);
+		if(head==null) {
+			head = newNode;
+			return;
+		} else {
+			Node current;
+			for (current=head;current.next!=null;current=current.next);
+			current.next=newNode;
+		}
+	}
+	
+	public void display() {
+		Node current;
+		for (current=head;current!=null;current=current.next) {
+			out.print("node="+current.data+"->");
+		}
+		out.print("null \n");
+	}
+}
+
+public class SLL {
+	public static void main(String[] args) {
+		int input;
+		SinglyLinklist sll = new SinglyLinklist();
+		Scanner sc = new Scanner(System.in);
+		do {
+			out.println("Singly Linklist menu:");
+			out.println("1. create a new LinkList.");
+			out.println("2. insert new node.");
+			out.println("3. display Linklist.");
+			out.println("4. Exit.");
+			input = sc.nextInt();
+			switch(input) {
+				case 1:
+					out.println("New Singly LinkList created.");
+					break;
+				case 2:
+					out.println("Enter data into node:");
+					int temp = sc.nextInt();
+					sll.insert(temp);
+					break;
+				case 3:
+					sll.display();
+					break;
+				default:
+					out.println("Error incorrect input.");
+			}
+		}while(input!=4);
+	}
+}

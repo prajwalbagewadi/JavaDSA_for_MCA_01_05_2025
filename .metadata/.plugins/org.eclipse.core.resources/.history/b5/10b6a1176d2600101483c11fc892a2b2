@@ -1,0 +1,18 @@
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+
+import static java.lang.System.out; //create a static object for omitting System
+
+/*
+A singly linked list is a fundamental data structure, 
+it consists of nodes where each node contains a data field and 
+a reference to the next node in the linked list.
+
+head 
+A        -> B        -> c       -> d       -> null   
+data next      next		   next       next
+*/
+public class SLL {
+
+}
