@@ -1,0 +1,155 @@
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+
+import static java.lang.System.out; //create a static object for omitting System
+
+/*
+A singly linked list is a fundamental data structure, 
+it consists of nodes where each node contains a data field and 
+a reference to the next node in the linked list.
+
+head 
+A        -> B        -> c       -> d       -> null   
+data next      next		   next       next
+*/
+
+class Node {
+	int data;
+	Node next;
+	
+	//constructor to init the node with data
+	public Node(int data) {
+		this.data=data;
+		this.next=null;
+	}
+}
+
+class SinglyLinklist{
+	Node head;
+	
+	//insert node at end.
+	public void insert(int data) {
+		Node newNode = new Node(data);
+		if(head==null) {
+			head = newNode;
+			return;
+		} else {
+			Node current;
+			for (current=head;current.next!=null;current=current.next);
+			current.next=newNode;
+		}
+	}
+	
+	//insert node at position.
+	public void insertAtPos(int pos,int data) {
+		Node newNode = new Node(data);
+		int cnt=0;
+		Node current = head;
+		while(current.next!=null && cnt<=pos-1) {
+			current=current.next;
+			cnt++;
+		}	
+		newNode.next=current.next;
+		current.next=newNode;
+	}
+	
+	//insert node at head.
+	public void insertAtHead(int data) {
+		Node newNode = new Node(data);
+		newNode.next=head;
+		head=newNode;
+	}
+	
+	
+	//delete node at end.
+	public void deleteAtEnd() {
+		Node current;
+		for (current=head;current.next.next!=null;current=current.next);
+		current.next=null;
+	}
+	
+	//delete node at pos.
+		public void deleteAtPos(int pos) {
+			Node current=head;
+			int cnt=0;
+			while(current.next!=null && cnt<pos-1) {
+				current=current.next;
+			}
+			current.next=current.next.next;
+		}
+		
+	
+		public void deleteAtHead() {
+			head=head.next;
+		}
+		
+		
+	//display linklist
+	public void display() {
+		Node current;
+		for (current=head;current!=null;current=current.next) {
+			out.print("node="+current.data+"->");
+		}
+		out.print("null \n");
+	}
+}
+
+public class SLL {
+	public static void main(String[] args) {
+		int input;
+		SinglyLinklist sll = new SinglyLinklist();
+		Scanner sc = new Scanner(System.in);
+		do {
+			out.println("Singly Linklist menu:");
+			out.println("1. create a new LinkList.");
+			out.println("2. insert new node at end.");
+			out.println("3. insert new node at pos.");
+			out.println("4. insert new node at head.");
+			out.println("5. delete node at end.");
+			out.println("6. delete node at pos.");
+			out.println("7. delete node at head.");
+			out.println("8. display Linklist.");
+			out.println("9. Exit.");
+			input = sc.nextInt();
+			switch(input) {
+				case 1:
+					out.println("New Singly LinkList created.\n");
+					break;
+				case 2:
+					out.println("Enter data into node:");
+					int temp = sc.nextInt();
+					sll.insert(temp);
+					break;
+				case 3:
+					out.println("Enter node position:");
+					int temppos = sc.nextInt();
+					out.println("Enter data into node:");
+					temp = sc.nextInt();
+					sll.insertAtPos(temppos,temp);
+					break;
+				case 4:
+					out.println("Enter data into node:");
+					temp = sc.nextInt();
+					sll.insertAtHead(temp);
+					break;
+				case 5:
+					sll.deleteAtEnd();
+					break;
+				case 6:
+					out.println("Enter pos to delete node:");
+					temp = sc.nextInt();
+					sll.deleteAtPos(temp);
+					break;
+				case 7:
+					sll.deleteAtHead();
+					break;
+				case 8:
+					sll.display();
+					break;
+				default:
+					out.println("Error incorrect input.");
+			}
+		}while(input!=9);
+	}
+}

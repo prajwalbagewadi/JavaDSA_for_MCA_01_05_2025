@@ -44,17 +44,22 @@ class SinglyLinklist{
 	//insert node at position.
 	public void insertAtPos(int pos,int data) {
 		Node newNode = new Node(data);
-		int cnt=1;
+		int cnt=0;
 		Node current = head;
-		while(current.next!=null && cnt<pos-1) {
-			current=current.next;
-			cnt++;
-		}	
-		newNode.next=current.next;
-		current.next=newNode;
+		if(pos==0) {
+			newNode.next=head;
+			head=newNode;
+		}else {
+			while(current.next!=null && cnt<pos-1) {
+				current=current.next;
+				cnt++;
+			}	
+			newNode.next=current.next;
+			current.next=newNode;
+		}
 	}
 	
-	
+	//insert node at head.
 	public void insertAtHead(int data) {
 		Node newNode = new Node(data);
 		newNode.next=head;
@@ -62,6 +67,33 @@ class SinglyLinklist{
 	}
 	
 	
+	//delete node at end.
+	public void deleteAtEnd() {
+		Node current;
+		for (current=head;current.next.next!=null;current=current.next);
+		current.next=null;
+	}
+	
+	//delete node at pos.
+		public void deleteAtPos(int pos) {
+			Node current=head;
+			int cnt=0;
+			if(pos==0) {
+				head=head.next;
+			}else {
+				while(current.next!=null && cnt<pos-1) {
+					current=current.next;
+				}
+				current.next=current.next.next;
+			}
+		}
+		
+	
+		public void deleteAtHead() {
+			head=head.next;
+		}
+		
+		
 	//display linklist
 	public void display() {
 		Node current;
@@ -80,11 +112,14 @@ public class SLL {
 		do {
 			out.println("Singly Linklist menu:");
 			out.println("1. create a new LinkList.");
-			out.println("2. insert new node.");
+			out.println("2. insert new node at end.");
 			out.println("3. insert new node at pos.");
 			out.println("4. insert new node at head.");
-			out.println("5. display Linklist.");
-			out.println("6. Exit.");
+			out.println("5. delete node at end.");
+			out.println("6. delete node at pos.");
+			out.println("7. delete node at head.");
+			out.println("8. display Linklist.");
+			out.println("9. Exit.");
 			input = sc.nextInt();
 			switch(input) {
 				case 1:
@@ -108,11 +143,22 @@ public class SLL {
 					sll.insertAtHead(temp);
 					break;
 				case 5:
+					sll.deleteAtEnd();
+					break;
+				case 6:
+					out.println("Enter pos to delete node:");
+					temp = sc.nextInt();
+					sll.deleteAtPos(temp);
+					break;
+				case 7:
+					sll.deleteAtHead();
+					break;
+				case 8:
 					sll.display();
 					break;
 				default:
 					out.println("Error incorrect input.");
 			}
-		}while(input!=6);
+		}while(input!=9);
 	}
 }
